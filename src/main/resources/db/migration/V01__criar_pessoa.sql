@@ -1,0 +1,8 @@
+CREATE TABLE	`pessoa` (
+  `id` BIGINT(20) unsigned NOT NULL AUTO_INCREMENT,
+  `nome` varchar(100) NOT NULL,
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE=InnoDB AUTO_INCREMENT=50 DEFAULT CHARSET=utf8;
+
+
+
