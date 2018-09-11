@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -37,14 +38,14 @@ public class PessoaResource {
 		return pessoaService.adicionar(pessoa);
 	}
 
-	@DeleteMapping
-	public void excluir(@RequestBody Pessoa pessoa) {
-		pessoaRepository.delete(pessoa);
+	@DeleteMapping("/{id}")
+	public void excluir(@PathVariable Long id) {
+		pessoaRepository.deleteById(id);
 	}
 
-	@PutMapping
-	public Pessoa alterar(@RequestBody Pessoa pessoa) {
-		return pessoaService.alterar(pessoa);
+	@PutMapping("/{id}")
+	public Pessoa alterar(@PathVariable Long id, @RequestBody Pessoa pessoa) {
+		return pessoaService.alterar(pessoa, id);
 	}
 
 }

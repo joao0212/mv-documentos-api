@@ -29,8 +29,8 @@ public class PessoaService {
 		return pessoaRepository.save(pessoa);
 	}
 
-	public Pessoa alterar(Pessoa pessoa) {
-		Pessoa pessoaSalva = pessoaRepository.findById(pessoa.getId()).get();
+	public Pessoa alterar(Pessoa pessoa, Long id) {
+		Pessoa pessoaSalva = pessoaRepository.findById(id).get();
 		BeanUtils.copyProperties(pessoa, pessoaSalva, "id");
 		return pessoaRepository.save(pessoa);
 	}
